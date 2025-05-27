@@ -2,7 +2,10 @@ services:
   - type: web
     name: partner-onboarding-portal
     env: node
-    buildCommand: npm install && npm run build
+    nodeVersion: 20.16.11
+    buildCommand: |
+      npm install
+      npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
