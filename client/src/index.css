@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+      --background: 0 0% 100%;
+--foreground: 0 0% 0%;
+--muted: 0 0% 95%;
+--muted-foreground: 0 0% 45%;
+--popover: 0 0% 100%;
+--popover-foreground: 0 0% 0%;
+--card: 0 0% 100%;
+--card-foreground: 0 0% 0%;
+--border: 0 0% 90%;
+--input: 0 0% 90%;
+--primary: 0 90% 50%; /* DataSkate Red */
+--primary-foreground: 0 0% 100%;
+--secondary: 0 0% 96%;
+--secondary-foreground: 0 0% 10%;
+--accent: 0 0% 96%;
+--accent-foreground: 0 0% 10%;
+--destructive: 0 84% 60%;
+--destructive-foreground: 0 0% 98%;
+--ring: 0 0% 0%;
+--radius: 0.5rem;
+  }
+  .dark {
+      --background: 0 0% 0%; /* Black background */
+--foreground: 0 0% 98%;
+--muted: 0 0% 15%;
+--muted-foreground: 0 0% 65%;
+--popover: 0 0% 0%;
+--popover-foreground: 0 0% 98%;
+--card: 0 0% 5%;
+--card-foreground: 0 0% 98%;
+--border: 0 0% 20%;
+--input: 0 0% 20%;
+--primary: 0 90% 50%; /* DataSkate Red */
+--primary-foreground: 0 0% 100%;
+--secondary: 0 0% 15%;
+--secondary-foreground: 0 0% 98%;
+--accent: 0 0% 15%;
+--accent-foreground: 0 0% 98%;
+--destructive: 0 63% 31%;
+--destructive-foreground: 0 0% 98%;
+--ring: 0 0% 80%;
+--radius: 0.5rem;
+  }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Add custom styles */
+.rocket-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* T2X Migration Agent styles */
+.login-page {
+  @apply bg-black text-white;
+}
+
+.login-hero {
+  @apply bg-red-600 relative overflow-hidden;
+}
+
+.login-hero-circle-1 {
+  @apply absolute w-96 h-96 rounded-full bg-red-500 opacity-80 -top-10 -right-10 z-0;
+}
+
+.login-hero-circle-2 {
+  @apply absolute w-96 h-96 rounded-full bg-red-700 opacity-60 -bottom-10 -left-10 z-0;
+}

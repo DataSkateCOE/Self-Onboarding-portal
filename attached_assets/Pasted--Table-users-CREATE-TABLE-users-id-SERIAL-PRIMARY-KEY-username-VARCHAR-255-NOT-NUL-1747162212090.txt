@@ -1,0 +1,89 @@
+-- Table: users
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    fullName VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    role VARCHAR(50) NOT NULL,
+    companyName VARCHAR(255) NULL,
+    createdAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table: partners
+CREATE TABLE partners (
+    id SERIAL PRIMARY KEY,
+    userId INTEGER NOT NULL,
+    companyName VARCHAR(255) NOT NULL,
+    contactName VARCHAR(255) NOT NULL,
+    contactEmail VARCHAR(255) NOT NULL,
+    contactPhone VARCHAR(50) NOT NULL,
+    partnerType VARCHAR(50) NOT NULL,  -- 'B2B_EDI' or 'GENERIC'
+    status VARCHAR(50) NOT NULL,  -- 'DRAFT', 'SUBMITTED', 'PENDING_APPROVAL', 'APPROVED', 'REJECTED'
+    address VARCHAR(255) NULL,
+    city VARCHAR(100) NULL,
+    state VARCHAR(100) NULL,
+    postalCode VARCHAR(20) NULL,
+    country VARCHAR(100) NULL,
+    industry VARCHAR(100) NULL,
+    website VARCHAR(255) NULL,
+    notes TEXT NULL,
+    submittedAt TIMESTAMP WITH TIME ZONE NULL,
+    approvedAt TIMESTAMP WITH TIME ZONE NULL,
+    rejectedAt TIMESTAMP WITH TIME ZONE NULL,
+    createdAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userId) REFERENCES users(id)
+);
+
+-- Table: documents
+CREATE TABLE documents (
+    id SERIAL PRIMARY KEY,
+    partnerId INTEGER NOT NULL,
+    fileName VARCHAR(255) NOT NULL,
+    fileType VARCHAR(100) NOT NULL,
+    fileSize INTEGER NOT NULL,
+    documentType VARCHAR(100) NOT NULL,
+    storagePath VARCHAR(500) NOT NULL,
+    uploadedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (partnerId) REFERENCES partners(id)
+);
+
+-- Table: approvals
+CREATE TABLE approvals (
+    id SERIAL PRIMARY KEY,
+    partnerId INTEGER NOT NULL,
+    status VARCHAR(50) NOT NULL,  -- 'PENDING', 'APPROVED', 'REJECTED'
+    approverId INTEGER NULL,
+    comments TEXT NULL,
+    createdAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (partnerId) REFERENCES partners(id),
+    FOREIGN KEY (approverId) REFERENCES users(id)
+);
+
+-- Table: certificates
+CREATE TABLE certificates (
+    id SERIAL PRIMARY KEY,
+    userId INTEGER NOT NULL,
+    fileName VARCHAR(255) NOT NULL,
+    fileType VARCHAR(100) NOT NULL,
+    fileSize INTEGER NOT NULL,
+    documentType VARCHAR(100) NOT NULL,
+    alias VARCHAR(255) NULL,
+    description TEXT NULL,
+    storagePath VARCHAR(500) NOT NULL,
+    uploadedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userId) REFERENCES users(id)
+);
+
+-- Table: sessions (for authentication sessions)
+CREATE TABLE sessions (
+    sid VARCHAR(255) PRIMARY KEY,
+    sess TEXT NOT NULL,
+    expire TIMESTAMP WITH TIME ZONE NOT NULL
+);
+
+-- Create an index on the expiration date for better query performance
+CREATE INDEX IDX_session_expire ON sessions (expire);

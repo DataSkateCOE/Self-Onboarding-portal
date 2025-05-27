@@ -1,0 +1,29 @@
+[vite] connecting...
+[vite] connected.
+MSAL config: 
+Object {clientId: "4b0c180d-5156-49bd-b04e-3b60a35eed80", tenantId: "4b0c180d-5156-49bd-b04e-3b60a35eed80", redirectUri: "http://localhost:5000/auth/redirect"}
+MSAL instance initialized with server config
+[Mon, 12 May 2025 16:54:25 GMT] : [] : @azure/msal-browser@4.12.0 : Info - initialize has already been called, exiting early.
+[Mon, 12 May 2025 16:54:25 GMT] : [] : @azure/msal-browser@4.12.0 : Info - handleRedirectPromise called but there is no interaction in progress, returning null.
+[Mon, 12 May 2025 16:54:25 GMT] : [] : @azure/msal-react@3.0.12 : Info - MsalProvider - handleRedirectPromise resolved, setting inProgress to 'none'
+MSAL config: 
+Object {clientId: "4b0c180d-5156-49bd-b04e-3b60a35eed80", tenantId: "4b0c180d-5156-49bd-b04e-3b60a35eed80", redirectUri: "http://localhost:5000/auth/redirect"}
+[Mon, 12 May 2025 16:54:25 GMT] : [] : @azure/msal-browser@4.12.0 : Info - initialize has already been called, exiting early.
+MSAL instance initialized with server config
+MSAL config: 
+Object {clientId: "4b0c180d-5156-49bd-b04e-3b60a35eed80", tenantId: "4b0c180d-5156-49bd-b04e-3b60a35eed80", redirectUri: "http://localhost:5000/auth/redirect"}
+[Mon, 12 May 2025 16:54:26 GMT] : [] : @azure/msal-browser@4.12.0 : Info - initialize has already been called, exiting early.
+MSAL instance initialized with server config
+MSAL config: 
+Object {clientId: "4b0c180d-5156-49bd-b04e-3b60a35eed80", tenantId: "4b0c180d-5156-49bd-b04e-3b60a35eed80", redirectUri: "http://localhost:5000/auth/redirect"}
+[Mon, 12 May 2025 16:57:02 GMT] : [] : @azure/msal-browser@4.12.0 : Info - initialize has already been called, exiting early.
+MSAL instance initialized with server config
+Using login config: 
+Object {scopes: Array(1), redirectUri: "https://105fd848-b197-4f0e-811b-b4b93cb6782c-00-3cdhm2e4s8vxa.picard.replit.dev", clientId: "4b0c180d-5156-49bd-b04e-3b60a35eed80", authority: "https://login.microsoftonline.com/4b0c180d-5156-49bd-b04e-3b60a35eed80"}
+Microsoft login error: 
+TypeError {message: "Failed to construct 'URL': Invalid URL"}
+message: "Failed to construct 'URL': Invalid URL"
+stack: "TypeError: Invalid URL↵ at preconnect (https://105fd848-b197-4f0e-811b-b4b93cb6782c-00-3cdhm2e4s8vxa.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-ZLXITNEB.js?v=712a6ebf:8276:15)↵ at PopupClient.acquireTokenPopupAsync (https://105fd848-b197-4f0e-811b-b4b93cb6782c-00-3cdhm2e4s8vxa.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-ZLXITNEB.js?v=712a6ebf:12237:7)↵ at async handleMicrosoftLogin (https://105fd848-b197-4f0e-811b-b4b93cb6782c-00-3cdhm2e4s8vxa.picard.replit.dev/src/pages/Login.tsx:94:22)"
+get stack: ƒ ()
+set stack: ƒ ()
+[[Prototype]]: Object
